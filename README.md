@@ -31,7 +31,8 @@ Las repeticiones completadas se guardan en `localStorage` con la clave `ruben-bi
 - `styles.css`: diseño responsive, animaciones y estilos de cada escena.
 - `app.js`: minijuegos, progreso, revelado del regalo y mural.
 - `assets/photos/`: las 15 fotografías originales proporcionadas.
-- `assets/cupon-regalo.png`: cupón original, sin alterar el QR.
+- `assets/cupon-regalo.pdf`: cupón PDF original, descargable sin modificaciones.
+- `assets/cupon-qr.svg`: QR vectorial extraído del PDF para mostrarlo en la página.
 - `assets/fonts/`: Anton y su licencia SIL Open Font License, procedentes de Google Fonts.
 
 El bloqueo del regalo forma parte del juego: una página estática no protege archivos ni códigos frente a quien inspeccione el repositorio o conozca su URL. Al publicar el repositorio o la web, las fotos y el cupón estarán accesibles. `noindex` solicita a los buscadores que no indexen la página, pero no proporciona control de acceso.
