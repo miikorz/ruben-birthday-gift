@@ -293,35 +293,21 @@
       setTimeout(() => $('#confetti').replaceChildren(), 4200);
     }
   }
-  $('#voucher-button').addEventListener('click', () => {
-    const open = $('#voucher').hidden;
-    $('#voucher').hidden = !open;
-    $('#voucher-button').setAttribute('aria-expanded', String(open));
-    $('#voucher-button').innerHTML = open ? 'Cerrar cupón <span>−</span>' : 'Abrir mi cupón <span>↗</span>';
-    if (open) $('#voucher').scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'center' });
-  });
-  $('#copy-code').addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText($('#voucher-code').textContent);
-      $('#copy-status').textContent = '¡Código copiado! Ahora toca dejarse cuidar.';
-    } catch {
-      const range = document.createRange();
-      range.selectNodeContents($('#voucher-code'));
-      const selection = window.getSelection();
-      selection.removeAllRanges();
-      selection.addRange(range);
-      $('#copy-status').textContent = 'Código seleccionado. Mantén pulsado o usa Ctrl/Cmd + C para copiarlo.';
-    }
+  $('#reward-button').addEventListener('click', () => {
+    const open = $('#reward-message').hidden;
+    $('#reward-message').hidden = !open;
+    $('#reward-button').setAttribute('aria-expanded', String(open));
+    $('#reward-button').innerHTML = open ? 'Cerrar mensaje <span>−</span>' : 'Recibir mi premio <span>↗</span>';
+    if (open) $('#reward-message').scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'center' });
   });
   $('#replay').addEventListener('click', () => {
     stopHold();
     state = newState();
     save();
     $('#finish').hidden = true;
-    $('#voucher').hidden = true;
-    $('#voucher-button').setAttribute('aria-expanded', 'false');
-    $('#voucher-button').innerHTML = 'Abrir mi cupón <span>↗</span>';
-    $('#copy-status').textContent = '';
+    $('#reward-message').hidden = true;
+    $('#reward-button').setAttribute('aria-expanded', 'false');
+    $('#reward-button').innerHTML = 'Recibir mi premio <span>↗</span>';
     $('#locked-reward').hidden = false;
     renderGame();
     $('#wod').scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth' });
